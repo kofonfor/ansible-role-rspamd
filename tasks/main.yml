@@ -1,0 +1,10 @@
+- name: setup an apt repo key
+  apt_key: url=https://rspamd.com/apt-stable/gpg.key state=present
+
+- name: add a repo
+  apt_repository:
+    repo: deb http://rspamd.com/apt-stable/ {{ ansible_distribution_release }} main
+    state: present
+
+- name: setup rspamd
+  apt: name=rspamd
