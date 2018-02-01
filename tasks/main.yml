@@ -8,3 +8,6 @@
 
 - name: setup rspamd
   apt: name=rspamd
+
+- name: create /var/lib/rspamd/dkim
+  file: dest=/var/lib/rspamd/dkim state=directory mode=0700 owner=_rspamd group=_rspamd
